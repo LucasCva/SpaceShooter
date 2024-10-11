@@ -110,6 +110,20 @@
         <script>window.onload = GameMaker_Init;</script>
 
         <!-- Builtin injector for injecting google analytics code -->
+
+        <script>
+            window.addEventListener('deviceorientation', function(event) {
+                var alpha = event.alpha; 
+                var beta = event.beta;   
+                var gamma = event.gamma; 
+            
+                // Chama a função do GameMaker para enviar os dados
+                if (typeof gm_sendOrientation === 'function') {
+                    gm_sendOrientation(alpha, beta, gamma);
+                }
+            });
+            </script>
+            
         
 
     </body>
